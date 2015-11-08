@@ -1,3 +1,4 @@
 # A web-based IDE for math equations prototyping
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/Se9D4Nj75x4" frameborder="0" allowfullscreen></iframe>
+[![ScreenShot](https://www.evernote.com/l/ATHlOlLXgRBPZ6kxrADWLHDJoWe2_riD0N0B/image.png)](https://www.youtube.com/watch?v=Se9D4Nj75x4)
+
