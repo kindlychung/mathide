@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A web-based mini IDE for writing latex equations</title>
+    <style type="text/css" media="screen">
+        .sep {
+            height: 5000px;
+        }
+    </style>
+    <script src="web/js/jquery-2.1.4.min.js"></script>
+    <link rel="shortcut icon" href="img/math.png">
+</head>
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MathEditor</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div id="main"> </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Rendered by KaTeX:</h3>
+    </div>
+    <div class="panel-body" id="mathOutput">
+    </div>
+</div>
+
+<div class="sep"></div>
+<div id="about"></div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">About</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-8">
+                <p id="about-list">
+                    I am a PhD student working in the field of computational genomics with strong interest in functional programming (i.e. in languages such as Scala).
+                    This project is a result of scratching one of my personal itches while experimenting with Scala.js.
+                    You can find me at these places on the right side.
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <a href="https://twitter.com/kindlychung" class="btn btn-info" role="button" style="width:70%; margin-left:10%">Twitter</a>
+                <a href="http://kspace.co.vu/" class="btn btn-info" role="button" style="width:70%; margin-left:10%">Blog</a>
+                <a href="https://github.com/kindlychung" class="btn btn-info" role="button" style="width:70%; margin-left:10%">Github</a>
+            </div>
+            <!-- /.col-sm-4 -->
+        </div>
+    </div>
+</div>
+<div class="sep"></div>
+
+
+<div class="sep"></div>
+<div id="help"></div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Help</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Key-binding</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Ctrl+Space/Tab</td>
+                <td>Autocompletion</td>
+            </tr>
+            <tr>
+                <td>Ctrl+N</td>
+                <td>Navigate forward in the autocompletion list</td>
+            </tr>
+            <tr>
+                <td>Ctrl+P</td>
+                <td>Navigate backward in the autocompletion list</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>See this video for a demo: </p>
+        <iframe width="100%" height="500" src="https://www.youtube.com/embed/Se9D4Nj75x4" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+<div class="sep"></div>
+
+<script src="web/katex/katex.min.js"></script>
+<script src="web/katex/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="web/katex/katex.min.css">
+<script src="target/scala-2.11/math-ide-jsdeps.js"></script>
+<!--<script src="target/scala-2.11/math-ide-fastopt.js"></script>-->
+<script src="target/scala-2.11/math-ide-opt.js"></script>
+<script src="web/js/bootstrap.min.js"></script>
+<link href="web/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="web/css/bootstrap-theme.min.css" rel="stylesheet">
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        //do work
+        vu.co.kaiyin.mathide.Main().main(document.getElementById("main"))
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+}
+.jumbotron {
+    background-color: rgba(55, 95, 95, 0.4);
+    color: white;
+    text-shadow:
+    -1px -1px 2px #000,
+    1px -1px 2px #000,
+    -1px 1px 2px #000,
+    1px 1px 2px #000;
+}
+.sep {
+    display: block;
+    height: 5500px;
+}
+#about {
+    height: 70px;
+}
+#about-list {
+    font-size: 1.2em;
+}
