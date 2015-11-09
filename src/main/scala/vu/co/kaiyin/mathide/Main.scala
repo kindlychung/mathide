@@ -143,6 +143,7 @@ class Main {
           textArea.value = textWorld.newValue
         }
       } else if (e.ctrlKey && e.keyCode == 78) {
+        e.preventDefault()
         textWorld.matchedIndex match {
           case None =>
           case Some(i) => {
@@ -152,6 +153,7 @@ class Main {
           }
         }
       } else if (e.ctrlKey && e.keyCode == 80) {
+        e.preventDefault()
         textWorld.matchedIndex match {
           case None =>
           case Some(i) => {
@@ -161,9 +163,8 @@ class Main {
             textArea.value = textWorld.newValue
           }
         }
-      } else if(e.keyCode == 32 || e.keyCode == 10 || e.keyCode == 13) {
-        textWorld.updateWorld
       } else {
+        textWorld.updateWorld
       }
       renderMath(e)
     }
@@ -172,6 +173,14 @@ class Main {
       if(textArea.value.trim.length < 1) {
         textArea.value = "%sep%\n"
         textWorld.updateWorld
+        renderMath(e)
+      } else {
+        if(e.ctrlKey && e.keyCode == 80 || e.ctrlKey && e.keyCode == 78) {
+        } else {
+          println("normal key up")
+          renderMath(e)
+          textWorld.updateWorld
+        }
       }
     }
 

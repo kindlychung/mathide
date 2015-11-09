@@ -4,7 +4,7 @@
 		module="math-ide-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20151108012040"
+		publication="20151109182042"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
