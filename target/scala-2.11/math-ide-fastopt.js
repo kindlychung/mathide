@@ -1145,6 +1145,57 @@ var $d_Lvu_co_kaiyin_WordEntry = new $TypeData().initClass({
 });
 $c_Lvu_co_kaiyin_WordEntry.prototype.$classData = $d_Lvu_co_kaiyin_WordEntry;
 /** @constructor */
+function $c_Lvu_co_kaiyin_katexjs_Main() {
+  $c_O.call(this)
+}
+$c_Lvu_co_kaiyin_katexjs_Main.prototype = new $h_O();
+$c_Lvu_co_kaiyin_katexjs_Main.prototype.constructor = $c_Lvu_co_kaiyin_katexjs_Main;
+/** @constructor */
+function $h_Lvu_co_kaiyin_katexjs_Main() {
+  /*<skip>*/
+}
+$h_Lvu_co_kaiyin_katexjs_Main.prototype = $c_Lvu_co_kaiyin_katexjs_Main.prototype;
+$c_Lvu_co_kaiyin_katexjs_Main.prototype.main__V = (function() {
+  var mathIn = $g["document"]["getElementById"]("mathinput");
+  var mathOut = $g["document"]["getElementById"]("mathoutput");
+  mathIn["onkeyup"] = (function(mathIn$1, mathOut$1) {
+    return (function(e$2) {
+      var this$2 = $m_s_Console$();
+      var this$3 = this$2.outVar$2;
+      $as_Ljava_io_PrintStream(this$3.tl$1.get__O()).println__O__V("fired!");
+      var x = $as_T(mathIn$1["value"]);
+      var this$5 = $m_s_Console$();
+      var this$6 = this$5.outVar$2;
+      $as_Ljava_io_PrintStream(this$6.tl$1.get__O()).println__O__V(x);
+      $g["katex"]["render"]($as_T(mathIn$1["value"]), mathOut$1)
+    })
+  })(mathIn, mathOut)
+});
+$c_Lvu_co_kaiyin_katexjs_Main.prototype.$$js$exported$meth$main__O = (function() {
+  this.main__V()
+});
+$c_Lvu_co_kaiyin_katexjs_Main.prototype["main"] = (function() {
+  return this.$$js$exported$meth$main__O()
+});
+var $d_Lvu_co_kaiyin_katexjs_Main = new $TypeData().initClass({
+  Lvu_co_kaiyin_katexjs_Main: 0
+}, false, "vu.co.kaiyin.katexjs.Main", {
+  Lvu_co_kaiyin_katexjs_Main: 1,
+  O: 1
+});
+$c_Lvu_co_kaiyin_katexjs_Main.prototype.$classData = $d_Lvu_co_kaiyin_katexjs_Main;
+$e["vu"] = ($e["vu"] || {});
+$e["vu"]["co"] = ($e["vu"]["co"] || {});
+$e["vu"]["co"]["kaiyin"] = ($e["vu"]["co"]["kaiyin"] || {});
+$e["vu"]["co"]["kaiyin"]["katexjs"] = ($e["vu"]["co"]["kaiyin"]["katexjs"] || {});
+/** @constructor */
+$e["vu"]["co"]["kaiyin"]["katexjs"]["Main"] = (function() {
+  var $thiz = new $c_Lvu_co_kaiyin_katexjs_Main();
+  $c_Lvu_co_kaiyin_katexjs_Main.prototype.init___.call($thiz);
+  return $thiz
+});
+$e["vu"]["co"]["kaiyin"]["katexjs"]["Main"].prototype = $c_Lvu_co_kaiyin_katexjs_Main.prototype;
+/** @constructor */
 function $c_Lvu_co_kaiyin_katexjs_RenderOpts$() {
   $c_O.call(this)
 }
@@ -1251,6 +1302,16 @@ $c_Lvu_co_kaiyin_mathide_Main.prototype.main__Lorg_scalajs_dom_raw_HTMLDivElemen
       return f$1.apply__O__O(arg1$1)
     })
   })(new $c_Lvu_co_kaiyin_mathide_Main$$anonfun$main$1().init___Lvu_co_kaiyin_mathide_Main__sjs_js_Function1__sr_VolatileObjectRef(this, renderMath, textWorld$module));
+  $m_Lvu_co_kaiyin_mathide_Components$().textArea$1["onkeyup"] = (function(arg$outer, textWorld$module$1) {
+    return (function(e$2) {
+      var thiz = $as_T($m_Lvu_co_kaiyin_mathide_Components$().textArea$1["value"]);
+      var thiz$1 = $as_T(thiz["trim"]());
+      if (($uI(thiz$1["length"]) < 1)) {
+        $m_Lvu_co_kaiyin_mathide_Components$().textArea$1["value"] = "%sep%\n";
+        arg$outer.vu$co$kaiyin$mathide$Main$$textWorld$1__sr_VolatileObjectRef__Lvu_co_kaiyin_mathide_Main$textWorld$2$(textWorld$module$1).updateWorld__V()
+      }
+    })
+  })(this, textWorld$module);
   mainDiv["appendChild"]($m_Lvu_co_kaiyin_mathide_Components$().latexGroup$1)
 });
 $c_Lvu_co_kaiyin_mathide_Main.prototype.vu$co$kaiyin$mathide$Main$$textWorld$1__sr_VolatileObjectRef__Lvu_co_kaiyin_mathide_Main$textWorld$2$ = (function(textWorld$module$1) {
@@ -3313,9 +3374,6 @@ function $m_sc_Iterator$() {
   };
   return $n_sc_Iterator$
 }
-function $s_sc_Iterator$class__isEmpty__sc_Iterator__Z($$this) {
-  return (!$$this.hasNext__Z())
-}
 function $s_sc_Iterator$class__toStream__sc_Iterator__sci_Stream($$this) {
   if ($$this.hasNext__Z()) {
     var hd = $$this.next__O();
@@ -3329,6 +3387,9 @@ function $s_sc_Iterator$class__toStream__sc_Iterator__sci_Stream($$this) {
     $m_sci_Stream$();
     return $m_sci_Stream$Empty$()
   }
+}
+function $s_sc_Iterator$class__isEmpty__sc_Iterator__Z($$this) {
+  return (!$$this.hasNext__Z())
 }
 function $s_sc_Iterator$class__toString__sc_Iterator__T($$this) {
   return (($$this.hasNext__Z() ? "non-empty" : "empty") + " iterator")
@@ -4702,19 +4763,6 @@ $c_sjsr_RuntimeString$.prototype.indexOf__T__I__I = (function(thiz, ch) {
   var str = this.fromCodePoint__p1__I__T(ch);
   return $uI(thiz["indexOf"](str))
 });
-$c_sjsr_RuntimeString$.prototype.hashCode__T__I = (function(thiz) {
-  var res = 0;
-  var mul = 1;
-  var i = (((-1) + $uI(thiz["length"])) | 0);
-  while ((i >= 0)) {
-    var jsx$1 = res;
-    var index = i;
-    res = ((jsx$1 + $imul((65535 & $uI(thiz["charCodeAt"](index))), mul)) | 0);
-    mul = $imul(31, mul);
-    i = (((-1) + i) | 0)
-  };
-  return res
-});
 $c_sjsr_RuntimeString$.prototype.fromCodePoint__p1__I__T = (function(codePoint) {
   if ((((-65536) & codePoint) === 0)) {
     var array = [codePoint];
@@ -4730,6 +4778,19 @@ $c_sjsr_RuntimeString$.prototype.fromCodePoint__p1__I__T = (function(codePoint) 
     var jsx$3 = jsx$4["fromCharCode"]["apply"](jsx$4, array$1);
     return $as_T(jsx$3)
   }
+});
+$c_sjsr_RuntimeString$.prototype.hashCode__T__I = (function(thiz) {
+  var res = 0;
+  var mul = 1;
+  var i = (((-1) + $uI(thiz["length"])) | 0);
+  while ((i >= 0)) {
+    var jsx$1 = res;
+    var index = i;
+    res = ((jsx$1 + $imul((65535 & $uI(thiz["charCodeAt"](index))), mul)) | 0);
+    mul = $imul(31, mul);
+    i = (((-1) + i) | 0)
+  };
+  return res
 });
 $c_sjsr_RuntimeString$.prototype.format__T__AO__T = (function(format, args) {
   var frm = new $c_ju_Formatter().init___();
@@ -6805,6 +6866,11 @@ function $h_s_Predef$() {
   /*<skip>*/
 }
 $h_s_Predef$.prototype = $c_s_Predef$.prototype;
+$c_s_Predef$.prototype.assert__Z__V = (function(assertion) {
+  if ((!assertion)) {
+    throw new $c_jl_AssertionError().init___O("assertion failed")
+  }
+});
 $c_s_Predef$.prototype.init___ = (function() {
   $n_s_Predef$ = this;
   $m_s_package$();
@@ -6818,11 +6884,6 @@ $c_s_Predef$.prototype.init___ = (function() {
   this.singleton$und$less$colon$less$2 = new $c_s_Predef$$anon$1().init___();
   this.scala$Predef$$singleton$und$eq$colon$eq$f = new $c_s_Predef$$anon$2().init___();
   return this
-});
-$c_s_Predef$.prototype.assert__Z__V = (function(assertion) {
-  if ((!assertion)) {
-    throw new $c_jl_AssertionError().init___O("assertion failed")
-  }
 });
 $c_s_Predef$.prototype.require__Z__V = (function(requirement) {
   if ((!requirement)) {
@@ -9102,7 +9163,7 @@ $c_Lvu_co_kaiyin_mathide_Main$$anonfun$main$1.prototype.apply__Lorg_scalajs_dom_
         throw new $c_s_MatchError().init___O(x1$2)
       }
     }
-  } else if (($uI(e["keyCode"]) === 32)) {
+  } else if (((($uI(e["keyCode"]) === 32) || ($uI(e["keyCode"]) === 10)) || ($uI(e["keyCode"]) === 13))) {
     this.$$outer$2.vu$co$kaiyin$mathide$Main$$textWorld$1__sr_VolatileObjectRef__Lvu_co_kaiyin_mathide_Main$textWorld$2$(this.textWorld$module$1$2).updateWorld__V()
   };
   return (0, this.renderMath$1$2)(e)
@@ -10173,7 +10234,7 @@ $c_sci_TrieIterator.prototype.next0__p2__Asci_Iterable__I__O = (function(elems, 
 $c_sci_TrieIterator.prototype.getElems__p2__sci_Iterable__Asci_Iterable = (function(x) {
   if ($is_sci_HashMap$HashTrieMap(x)) {
     var x2 = $as_sci_HashMap$HashTrieMap(x);
-    var jsx$1 = x2.elems__Asci_HashMap()
+    var jsx$1 = $asArrayOf_sc_AbstractIterable(x2.elems__Asci_HashMap(), 1)
   } else if ($is_sci_HashSet$HashTrieSet(x)) {
     var x3 = $as_sci_HashSet$HashTrieSet(x);
     var jsx$1 = x3.elems$5
@@ -12994,15 +13055,27 @@ $c_sc_AbstractIterable.prototype.foreach__F1__V = (function(f) {
   var this$1 = this.iterator__sc_Iterator();
   $s_sc_Iterator$class__foreach__sc_Iterator__F1__V(this$1, f)
 });
-$c_sc_AbstractIterable.prototype.drop__I__O = (function(n) {
-  return $s_sc_IterableLike$class__drop__sc_IterableLike__I__O(this, n)
-});
 $c_sc_AbstractIterable.prototype.toStream__sci_Stream = (function() {
   return this.iterator__sc_Iterator().toStream__sci_Stream()
+});
+$c_sc_AbstractIterable.prototype.drop__I__O = (function(n) {
+  return $s_sc_IterableLike$class__drop__sc_IterableLike__I__O(this, n)
 });
 $c_sc_AbstractIterable.prototype.copyToArray__O__I__I__V = (function(xs, start, len) {
   $s_sc_IterableLike$class__copyToArray__sc_IterableLike__O__I__I__V(this, xs, start, len)
 });
+function $is_sc_AbstractIterable(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sc_AbstractIterable)))
+}
+function $as_sc_AbstractIterable(obj) {
+  return (($is_sc_AbstractIterable(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.collection.AbstractIterable"))
+}
+function $isArrayOf_sc_AbstractIterable(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.sc_AbstractIterable)))
+}
+function $asArrayOf_sc_AbstractIterable(obj, depth) {
+  return (($isArrayOf_sc_AbstractIterable(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.collection.AbstractIterable;", depth))
+}
 function $is_sci_Iterable(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sci_Iterable)))
 }
@@ -13119,12 +13192,12 @@ $c_sci_StringOps.prototype.addString__scm_StringBuilder__T__T__T__scm_StringBuil
 $c_sci_StringOps.prototype.repr__O = (function() {
   return this.repr$1
 });
-$c_sci_StringOps.prototype.copyToArray__O__I__I__V = (function(xs, start, len) {
-  $s_sc_IndexedSeqOptimized$class__copyToArray__sc_IndexedSeqOptimized__O__I__I__V(this, xs, start, len)
-});
 $c_sci_StringOps.prototype.hashCode__I = (function() {
   var $$this = this.repr$1;
   return $m_sjsr_RuntimeString$().hashCode__T__I($$this)
+});
+$c_sci_StringOps.prototype.copyToArray__O__I__I__V = (function(xs, start, len) {
+  $s_sc_IndexedSeqOptimized$class__copyToArray__sc_IndexedSeqOptimized__O__I__I__V(this, xs, start, len)
 });
 $c_sci_StringOps.prototype.init___T = (function(repr) {
   this.repr$1 = repr;
@@ -13304,11 +13377,11 @@ $c_sci_ListSet.prototype.head__O = (function() {
 $c_sci_ListSet.prototype.apply__O__O = (function(v1) {
   return this.contains__O__Z(v1)
 });
-$c_sci_ListSet.prototype.thisCollection__sc_Traversable = (function() {
-  return this
-});
 $c_sci_ListSet.prototype.isEmpty__Z = (function() {
   return true
+});
+$c_sci_ListSet.prototype.thisCollection__sc_Traversable = (function() {
+  return this
 });
 $c_sci_ListSet.prototype.scala$collection$immutable$ListSet$$unchecked$undouter__sci_ListSet = (function() {
   throw new $c_ju_NoSuchElementException().init___T("Empty ListSet has no outer pointer")
@@ -13867,14 +13940,14 @@ function $h_sci_HashSet() {
   /*<skip>*/
 }
 $h_sci_HashSet.prototype = $c_sci_HashSet.prototype;
+$c_sci_HashSet.prototype.seq__sc_TraversableOnce = (function() {
+  return this
+});
 $c_sci_HashSet.prototype.updated0__O__I__I__sci_HashSet = (function(key, hash, level) {
   return new $c_sci_HashSet$HashSet1().init___O__I(key, hash)
 });
 $c_sci_HashSet.prototype.computeHash__O__I = (function(key) {
   return this.improve__I__I($m_sr_ScalaRunTime$().hash__O__I(key))
-});
-$c_sci_HashSet.prototype.seq__sc_TraversableOnce = (function() {
-  return this
 });
 $c_sci_HashSet.prototype.init___ = (function() {
   return this
@@ -14270,11 +14343,11 @@ $c_sci_HashSet$HashTrieSet.prototype.foreach__F1__V = (function(f) {
     i = ((1 + i) | 0)
   }
 });
-$c_sci_HashSet$HashTrieSet.prototype.size__I = (function() {
-  return this.size0$5
-});
 $c_sci_HashSet$HashTrieSet.prototype.iterator__sc_Iterator = (function() {
   return new $c_sci_HashSet$HashTrieSet$$anon$1().init___sci_HashSet$HashTrieSet(this)
+});
+$c_sci_HashSet$HashTrieSet.prototype.size__I = (function() {
+  return this.size0$5
 });
 $c_sci_HashSet$HashTrieSet.prototype.init___I__Asci_HashSet__I = (function(bitmap, elems, size0) {
   this.bitmap$5 = bitmap;
@@ -14514,12 +14587,12 @@ $c_sci_HashSet$HashSetCollision1.prototype.foreach__F1__V = (function(f) {
   var this$2 = new $c_sci_ListSet$$anon$1().init___sci_ListSet(this$1);
   $s_sc_Iterator$class__foreach__sc_Iterator__F1__V(this$2, f)
 });
-$c_sci_HashSet$HashSetCollision1.prototype.size__I = (function() {
-  return this.ks$6.size__I()
-});
 $c_sci_HashSet$HashSetCollision1.prototype.iterator__sc_Iterator = (function() {
   var this$1 = this.ks$6;
   return new $c_sci_ListSet$$anon$1().init___sci_ListSet(this$1)
+});
+$c_sci_HashSet$HashSetCollision1.prototype.size__I = (function() {
+  return this.ks$6.size__I()
 });
 $c_sci_HashSet$HashSetCollision1.prototype.init___I__sci_ListSet = (function(hash, ks) {
   this.hash$6 = hash;
@@ -14610,12 +14683,12 @@ $c_sci_List.prototype.init___ = (function() {
 $c_sci_List.prototype.lengthCompare__I__I = (function(len) {
   return $s_sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I(this, len)
 });
+$c_sci_List.prototype.sameElements__sc_GenIterable__Z = (function(that) {
+  return $s_sc_LinearSeqOptimized$class__sameElements__sc_LinearSeqOptimized__sc_GenIterable__Z(this, that)
+});
 $c_sci_List.prototype.apply__O__O = (function(v1) {
   var n = $uI(v1);
   return $s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this, n)
-});
-$c_sci_List.prototype.sameElements__sc_GenIterable__Z = (function(that) {
-  return $s_sc_LinearSeqOptimized$class__sameElements__sc_LinearSeqOptimized__sc_GenIterable__Z(this, that)
 });
 $c_sci_List.prototype.thisCollection__sc_Traversable = (function() {
   return this
@@ -14647,11 +14720,11 @@ $c_sci_List.prototype.drop__I__sci_List = (function(n) {
   };
   return these
 });
-$c_sci_List.prototype.seq__sc_Seq = (function() {
-  return this
-});
 $c_sci_List.prototype.length__I = (function() {
   return $s_sc_LinearSeqOptimized$class__length__sc_LinearSeqOptimized__I(this)
+});
+$c_sci_List.prototype.seq__sc_Seq = (function() {
+  return this
 });
 $c_sci_List.prototype.toStream__sci_Stream = (function() {
   return (this.isEmpty__Z() ? $m_sci_Stream$Empty$() : new $c_sci_Stream$Cons().init___O__F0(this.head__O(), new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this) {
@@ -14715,14 +14788,11 @@ $c_sci_Range.prototype.apply__O__O = (function(v1) {
 $c_sci_Range.prototype.isEmpty__Z = (function() {
   return this.isEmpty$4
 });
-$c_sci_Range.prototype.longLength__p4__J = (function() {
-  return this.gap__p4__J().$$div__sjsr_RuntimeLong__sjsr_RuntimeLong(new $c_sjsr_RuntimeLong().init___I(this.step$4)).$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong(new $c_sjsr_RuntimeLong().init___I((this.hasStub__p4__Z() ? 1 : 0)))
-});
 $c_sci_Range.prototype.thisCollection__sc_Traversable = (function() {
   return this
 });
-$c_sci_Range.prototype.locationAfterN__p4__I__I = (function(n) {
-  return ((this.start$4 + $imul(this.step$4, n)) | 0)
+$c_sci_Range.prototype.longLength__p4__J = (function() {
+  return this.gap__p4__J().$$div__sjsr_RuntimeLong__sjsr_RuntimeLong(new $c_sjsr_RuntimeLong().init___I(this.step$4)).$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong(new $c_sjsr_RuntimeLong().init___I((this.hasStub__p4__Z() ? 1 : 0)))
 });
 $c_sci_Range.prototype.equals__O__Z = (function(other) {
   if ($is_sci_Range(other)) {
@@ -14738,6 +14808,9 @@ $c_sci_Range.prototype.equals__O__Z = (function(other) {
   } else {
     return $s_sc_GenSeqLike$class__equals__sc_GenSeqLike__O__Z(this, other)
   }
+});
+$c_sci_Range.prototype.locationAfterN__p4__I__I = (function(n) {
+  return ((this.start$4 + $imul(this.step$4, n)) | 0)
 });
 $c_sci_Range.prototype.apply$mcII$sp__I__I = (function(idx) {
   this.scala$collection$immutable$Range$$validateMaxLength__V();
@@ -14784,13 +14857,13 @@ $c_sci_Range.prototype.init___I__I__I = (function(start, end, step) {
   this.terminalElement$4 = ((this.lastElement$4 + step) | 0);
   return this
 });
-$c_sci_Range.prototype.companion__scg_GenericCompanion = (function() {
-  return $m_sci_IndexedSeq$()
-});
 $c_sci_Range.prototype.toString__T = (function() {
   var endStr = (((this.numRangeElements$4 > $m_sci_Range$().MAX$undPRINT$1) || ((!this.isEmpty$4) && (this.numRangeElements$4 < 0))) ? ", ... )" : ")");
   var this$1 = this.take__I__sci_Range($m_sci_Range$().MAX$undPRINT$1);
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this$1, "Range(", ", ", endStr)
+});
+$c_sci_Range.prototype.companion__scg_GenericCompanion = (function() {
+  return $m_sci_IndexedSeq$()
 });
 $c_sci_Range.prototype.foreach__F1__V = (function(f) {
   this.scala$collection$immutable$Range$$validateMaxLength__V();
@@ -14822,11 +14895,11 @@ $c_sci_Range.prototype.scala$collection$immutable$Range$$validateMaxLength__V = 
     $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__sr_Nothing$(this.start$4, this.end$4, this.step$4, this.isInclusive__Z())
   }
 });
-$c_sci_Range.prototype.length__I = (function() {
-  return ((this.numRangeElements$4 < 0) ? $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__sr_Nothing$(this.start$4, this.end$4, this.step$4, this.isInclusive__Z()) : this.numRangeElements$4)
-});
 $c_sci_Range.prototype.seq__sc_Seq = (function() {
   return this
+});
+$c_sci_Range.prototype.length__I = (function() {
+  return ((this.numRangeElements$4 < 0) ? $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__sr_Nothing$(this.start$4, this.end$4, this.step$4, this.isInclusive__Z()) : this.numRangeElements$4)
 });
 $c_sci_Range.prototype.drop__I__sci_Range = (function(n) {
   if (((n <= 0) || this.isEmpty$4)) {
@@ -14981,11 +15054,11 @@ $c_sci_Stream.prototype.mkString__T__T__T__T = (function(start, sep, end) {
   this.force__sci_Stream();
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
 });
-$c_sci_Stream.prototype.toString__T = (function() {
-  return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, ("Stream" + "("), ", ", ")")
-});
 $c_sci_Stream.prototype.companion__scg_GenericCompanion = (function() {
   return $m_sci_Stream$()
+});
+$c_sci_Stream.prototype.toString__T = (function() {
+  return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, ("Stream" + "("), ", ", ")")
 });
 $c_sci_Stream.prototype.foreach__F1__V = (function(f) {
   var _$this = this;
@@ -15594,6 +15667,11 @@ $c_sci_Vector.prototype.drop__I__O = (function(n) {
 $c_sci_Vector.prototype.display5__AO = (function() {
   return this.display5$4
 });
+$c_sci_Vector.prototype.iterator__sci_VectorIterator = (function() {
+  var s = new $c_sci_VectorIterator().init___I__I(this.startIndex$4, this.endIndex$4);
+  this.initIterator__sci_VectorIterator__V(s);
+  return s
+});
 $c_sci_Vector.prototype.requiredDepth__p4__I__I = (function(xor) {
   if ((xor < 32)) {
     return 1
@@ -15610,11 +15688,6 @@ $c_sci_Vector.prototype.requiredDepth__p4__I__I = (function(xor) {
   } else {
     throw new $c_jl_IllegalArgumentException().init___()
   }
-});
-$c_sci_Vector.prototype.iterator__sci_VectorIterator = (function() {
-  var s = new $c_sci_VectorIterator().init___I__I(this.startIndex$4, this.endIndex$4);
-  this.initIterator__sci_VectorIterator__V(s);
-  return s
 });
 $c_sci_Vector.prototype.zeroLeft__p4__AO__I__V = (function(array, index) {
   var i = 0;
@@ -15659,14 +15732,14 @@ $c_sci_Vector.prototype.drop__I__sci_Vector = (function(n) {
     return this$1.NIL$6
   }
 });
+$c_sci_Vector.prototype.display3$und$eq__AO__V = (function(x$1) {
+  this.display3$4 = x$1
+});
 $c_sci_Vector.prototype.copyRight__p4__AO__I__AO = (function(array, left) {
   var a2 = $newArrayObject($d_O.getArrayOf(), [array.u["length"]]);
   var length = ((a2.u["length"] - left) | 0);
   $systemArraycopy(array, left, a2, left, length);
   return a2
-});
-$c_sci_Vector.prototype.display3$und$eq__AO__V = (function(x$1) {
-  this.display3$4 = x$1
 });
 var $d_sci_Vector = new $TypeData().initClass({
   sci_Vector: 0
@@ -15752,11 +15825,11 @@ $c_sci_WrappedString.prototype.apply__I__C = (function(n) {
   var thiz = this.self$4;
   return (65535 & $uI(thiz["charCodeAt"](n)))
 });
-$c_sci_WrappedString.prototype.toString__T = (function() {
-  return this.self$4
-});
 $c_sci_WrappedString.prototype.companion__scg_GenericCompanion = (function() {
   return $m_sci_IndexedSeq$()
+});
+$c_sci_WrappedString.prototype.toString__T = (function() {
+  return this.self$4
 });
 $c_sci_WrappedString.prototype.foreach__F1__V = (function(f) {
   $s_sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
@@ -16083,14 +16156,14 @@ $c_scm_AbstractSet.prototype.hashCode__I = (function() {
 $c_scm_AbstractSet.prototype.sizeHint__I__V = (function(size) {
   /*<skip>*/
 });
-$c_scm_AbstractSet.prototype.stringPrefix__T = (function() {
-  return "Set"
-});
 $c_scm_AbstractSet.prototype.newBuilder__scm_Builder = (function() {
   return new $c_scm_HashSet().init___()
 });
 $c_scm_AbstractSet.prototype.$$plus$plus$eq__sc_TraversableOnce__scg_Growable = (function(xs) {
   return $s_scg_Growable$class__$$plus$plus$eq__scg_Growable__sc_TraversableOnce__scg_Growable(this, xs)
+});
+$c_scm_AbstractSet.prototype.stringPrefix__T = (function() {
+  return "Set"
 });
 /** @constructor */
 function $c_scm_AbstractBuffer() {
@@ -17290,12 +17363,12 @@ $c_scm_ListBuffer.prototype.lengthCompare__I__I = (function(len) {
   var this$1 = this.scala$collection$mutable$ListBuffer$$start$6;
   return $s_sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I(this$1, len)
 });
-$c_scm_ListBuffer.prototype.apply__O__O = (function(v1) {
-  return this.apply__I__O($uI(v1))
-});
 $c_scm_ListBuffer.prototype.sameElements__sc_GenIterable__Z = (function(that) {
   var this$1 = this.scala$collection$mutable$ListBuffer$$start$6;
   return $s_sc_LinearSeqOptimized$class__sameElements__sc_LinearSeqOptimized__sc_GenIterable__Z(this$1, that)
+});
+$c_scm_ListBuffer.prototype.apply__O__O = (function(v1) {
+  return this.apply__I__O($uI(v1))
 });
 $c_scm_ListBuffer.prototype.isEmpty__Z = (function() {
   return this.scala$collection$mutable$ListBuffer$$start$6.isEmpty__Z()
@@ -17843,15 +17916,15 @@ $h_scm_ArrayBuffer.prototype = $c_scm_ArrayBuffer.prototype;
 $c_scm_ArrayBuffer.prototype.seq__sc_TraversableOnce = (function() {
   return this
 });
+$c_scm_ArrayBuffer.prototype.init___ = (function() {
+  $c_scm_ArrayBuffer.prototype.init___I.call(this, 16);
+  return this
+});
 $c_scm_ArrayBuffer.prototype.$$plus$eq__O__scm_ArrayBuffer = (function(elem) {
   var n = ((1 + this.size0$6) | 0);
   $s_scm_ResizableArray$class__ensureSize__scm_ResizableArray__I__V(this, n);
   this.array$6.u[this.size0$6] = elem;
   this.size0$6 = ((1 + this.size0$6) | 0);
-  return this
-});
-$c_scm_ArrayBuffer.prototype.init___ = (function() {
-  $c_scm_ArrayBuffer.prototype.init___I.call(this, 16);
   return this
 });
 $c_scm_ArrayBuffer.prototype.apply__I__O = (function(idx) {
@@ -17860,12 +17933,12 @@ $c_scm_ArrayBuffer.prototype.apply__I__O = (function(idx) {
 $c_scm_ArrayBuffer.prototype.lengthCompare__I__I = (function(len) {
   return $s_sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
 });
-$c_scm_ArrayBuffer.prototype.sameElements__sc_GenIterable__Z = (function(that) {
-  return $s_sc_IndexedSeqOptimized$class__sameElements__sc_IndexedSeqOptimized__sc_GenIterable__Z(this, that)
-});
 $c_scm_ArrayBuffer.prototype.apply__O__O = (function(v1) {
   var idx = $uI(v1);
   return $s_scm_ResizableArray$class__apply__scm_ResizableArray__I__O(this, idx)
+});
+$c_scm_ArrayBuffer.prototype.sameElements__sc_GenIterable__Z = (function(that) {
+  return $s_sc_IndexedSeqOptimized$class__sameElements__sc_IndexedSeqOptimized__sc_GenIterable__Z(this, that)
 });
 $c_scm_ArrayBuffer.prototype.isEmpty__Z = (function() {
   return $s_sc_IndexedSeqOptimized$class__isEmpty__sc_IndexedSeqOptimized__Z(this)
@@ -17888,25 +17961,25 @@ $c_scm_ArrayBuffer.prototype.slice__I__I__O = (function(from, until) {
 $c_scm_ArrayBuffer.prototype.result__O = (function() {
   return this
 });
-$c_scm_ArrayBuffer.prototype.iterator__sc_Iterator = (function() {
-  return new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this, 0, this.size0$6)
-});
 $c_scm_ArrayBuffer.prototype.seq__scm_Seq = (function() {
   return this
 });
-$c_scm_ArrayBuffer.prototype.sizeHintBounded__I__sc_TraversableLike__V = (function(size, boundingColl) {
-  $s_scm_Builder$class__sizeHintBounded__scm_Builder__I__sc_TraversableLike__V(this, size, boundingColl)
+$c_scm_ArrayBuffer.prototype.iterator__sc_Iterator = (function() {
+  return new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this, 0, this.size0$6)
 });
 $c_scm_ArrayBuffer.prototype.init___I = (function(initialSize) {
   this.initialSize$6 = initialSize;
   $s_scm_ResizableArray$class__$$init$__scm_ResizableArray__V(this);
   return this
 });
-$c_scm_ArrayBuffer.prototype.length__I = (function() {
-  return this.size0$6
+$c_scm_ArrayBuffer.prototype.sizeHintBounded__I__sc_TraversableLike__V = (function(size, boundingColl) {
+  $s_scm_Builder$class__sizeHintBounded__scm_Builder__I__sc_TraversableLike__V(this, size, boundingColl)
 });
 $c_scm_ArrayBuffer.prototype.seq__sc_Seq = (function() {
   return this
+});
+$c_scm_ArrayBuffer.prototype.length__I = (function() {
+  return this.size0$6
 });
 $c_scm_ArrayBuffer.prototype.drop__I__O = (function(n) {
   var until = this.size0$6;
@@ -17928,9 +18001,6 @@ $c_scm_ArrayBuffer.prototype.$$plus$plus$eq__sc_TraversableOnce__scm_ArrayBuffer
 $c_scm_ArrayBuffer.prototype.$$plus$eq__O__scm_Builder = (function(elem) {
   return this.$$plus$eq__O__scm_ArrayBuffer(elem)
 });
-$c_scm_ArrayBuffer.prototype.copyToArray__O__I__I__V = (function(xs, start, len) {
-  $s_scm_ResizableArray$class__copyToArray__scm_ResizableArray__O__I__I__V(this, xs, start, len)
-});
 $c_scm_ArrayBuffer.prototype.sizeHint__I__V = (function(len) {
   if (((len > this.size0$6) && (len >= 1))) {
     var newarray = $newArrayObject($d_O.getArrayOf(), [len]);
@@ -17939,6 +18009,9 @@ $c_scm_ArrayBuffer.prototype.sizeHint__I__V = (function(len) {
     $systemArraycopy(src, 0, newarray, 0, length);
     this.array$6 = newarray
   }
+});
+$c_scm_ArrayBuffer.prototype.copyToArray__O__I__I__V = (function(xs, start, len) {
+  $s_scm_ResizableArray$class__copyToArray__scm_ResizableArray__O__I__I__V(this, xs, start, len)
 });
 $c_scm_ArrayBuffer.prototype.hashCode__I = (function() {
   return $m_s_util_hashing_MurmurHash3$().seqHash__sc_Seq__I(this)

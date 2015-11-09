@@ -163,8 +163,16 @@ class Main {
         }
       } else if(e.keyCode == 32 || e.keyCode == 10 || e.keyCode == 13) {
         textWorld.updateWorld
+      } else {
       }
       renderMath(e)
+    }
+
+    textArea.onkeyup = (e: KeyboardEvent) => {
+      if(textArea.value.trim.length < 1) {
+        textArea.value = "%sep%\n"
+        textWorld.updateWorld
+      }
     }
 
 
